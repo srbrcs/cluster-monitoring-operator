@@ -7,7 +7,7 @@ RUN mkdir $GOPATH
 COPY . $GOPATH/src/github.com/openshift/cluster-monitoring-operator
 
 RUN yum install -y golang make # git 
-RUN cd $GOPATH/src/github.com/openshift/cluster-monitoring-operator && make operator-no-deps 
+RUN cd $GOPATH/src/github.com/openshift/cluster-monitoring-operator && make pkg/manifests/bindata.go operator-no-deps 
 RUN cp $GOPATH/src/github.com/openshift/cluster-monitoring-operator/operator /usr/bin/ # && \ # yum autoremove -y golang make git && yum clean all
 
 LABEL io.k8s.display-name="OpenShift cluster-monitoring-operator" \
