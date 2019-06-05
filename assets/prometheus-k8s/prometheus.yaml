@@ -78,6 +78,9 @@ spec:
   - prometheus-k8s-htpasswd
   securityContext: {}
   serviceAccountName: prometheus-k8s
+  additionalScrapeConfigs:
+    name: additional-scrape-configs
+    key: prometheus-additional.yaml
   serviceMonitorNamespaceSelector:
     matchExpressions:
     - key: openshift.io/cluster-monitoring
