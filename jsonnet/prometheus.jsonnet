@@ -270,6 +270,10 @@ local namespacesRole = policyRule.new() +
           ],
           serviceMonitorSelector: selector.withMatchExpressions({ key: 'k8s-app', operator: 'Exists' }),
           serviceMonitorNamespaceSelector: selector.withMatchExpressions({ key: 'openshift.io/cluster-monitoring', operator: 'Exists' }),
+          additionalScrapeConfigs: {
+            name: 'additional-scrape-configs',
+            key: 'prometheus-additional.yaml' 
+          },
           listenLocal: true,
           containers: [
             {
